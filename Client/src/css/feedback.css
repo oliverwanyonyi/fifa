@@ -1,0 +1,76 @@
+.feedback-message {
+  width: 80%;
+  min-height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #ececec;
+  border: 2px solid #b6bdbc;
+  border-radius: 5px;
+  margin: 0 auto;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 5px 20px;
+  -webkit-transition: 400ms all;
+  transition: 400ms all;
+}
+
+.feedback-message.d-none {
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.feedback-message .close-feedback-btn {
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid #09f062;
+  color: #ececec;
+  border-radius: 50%;
+}
+
+.feedback-message .info {
+  color: #ececec;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: justify;
+}
+
+.feedback-message.success {
+  background: #87f0af;
+  border-color: #09f062;
+}
+
+.feedback-message.success .close-feedback-btn {
+  border: 2px solid #09f062;
+}
+
+.feedback-message.error {
+  background: #f57a65;
+  border-color: #ee300e;
+}
+
+.feedback-message.error .close-feedback-btn {
+  border: 2px solid #ee300e;
+}
+/*# sourceMappingURL=feedback.css.map */

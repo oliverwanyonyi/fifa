@@ -1,0 +1,79 @@
+.nav {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background: var(--color-grey);
+  .nav__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nav__brand {
+      font-size: 17px;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .nav__links-container {
+      .nav__links {
+        .nav__item {
+          position: relative;
+          .nav__link {
+            font-size: 16px;
+            color: var(--color-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-weight: 500;
+            border: 2px solid var(--color-white);
+            padding: 5px 10px;
+            border-radius: 10px;
+            transition: 400ms ease;
+            background: rgba(5, 179, 223, 0.1);
+            text-transform: capitalize;
+            &:hover,
+            &:focus {
+              background: rgba(5, 179, 223, 0.3);
+              border-color: var(--color-primary);
+            }
+          }
+          .nav__drop {
+            position: absolute;
+            top: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-grey);
+            width: 200px;
+            border-bottom: 2px solid var(--color-primary);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 10;
+            transition: 400ms ease-in;
+            &.drop-active {
+              opacity: 1;
+              visibility: visible;
+            }
+            .nav__drop-item {
+              .nav__drop-link {
+                font-size: 14px;
+                padding: 10px;
+                display: block;
+                color: var(--color-black-v1);
+                &:hover,
+                &.active {
+                  background: #fff;
+                  color: black;
+                }
+                &.btn {
+                  width: 100%;
+                  cursor: pointer;
+                  background: none;
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .fa-spin {
+    color: var(--color-primary);
+    font-size: 30px;
+  }
+}
