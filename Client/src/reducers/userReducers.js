@@ -9,10 +9,6 @@ import {
   GET_USERS_REQUEST,
   GET_USERS_SUCCESS,
   GET_USERS_FAIL,
-  UPDATE_STATS_REQUEST,
-  UPDATE_STATS_SUCCESS,
-  UPDATE_STATS_FAIL,
-  CLEAR_FEEDBACK_MESSAGE,
 } from "../Constants/userConstants";
 export const userRegisterReducer = (state, action) => {
   switch (action.type) {
@@ -37,12 +33,7 @@ export const userLoginReducer = (state, action) => {
       return { loading: false, error: action.payload };
     case USER_LOGOUT:
       return {};
-    case CLEAR_FEEDBACK_MESSAGE:
-      return {
-        ...state,
-        error: null,
-        success: null,
-      };
+
     default:
       return state;
   }
@@ -55,19 +46,6 @@ export const getUsersReducer = (state, action) => {
     case GET_USERS_SUCCESS:
       return { loading: false, users: action.payload };
     case GET_USERS_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
-
-export const updateStatsReducer = (state, action) => {
-  switch (action.type) {
-    case UPDATE_STATS_REQUEST:
-      return { loading: true };
-    case UPDATE_STATS_SUCCESS:
-      return { loading: false, success: action.payload };
-    case UPDATE_STATS_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

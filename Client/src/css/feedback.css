@@ -50,8 +50,8 @@
 }
 
 .feedback-message .info {
-  color: #ececec;
-  font-weight: 700;
+  color: #ffff;
+  font-weight: 500;
   font-size: 13px;
   text-align: justify;
 }
@@ -59,6 +59,10 @@
 .feedback-message.success {
   background: #87f0af;
   border-color: #09f062;
+}
+
+.feedback-message.success .info {
+  color: #101010;
 }
 
 .feedback-message.success .close-feedback-btn {

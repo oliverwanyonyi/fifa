@@ -6,11 +6,11 @@
   outline: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Fredoka", sans-serif;
 }
 
 :root {
-  --color-black: #020214;
+  --color-black: #06060f;
   --color-black-v1: #353535;
   --color-primary: #06b8be;
   --color-white: #ffffff;
@@ -77,38 +77,231 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
 }
 
 .home .competion-table .table {
   width: 700px;
   background: var(--color-white);
   border-collapse: collapse;
-  border-bottom: 3px solid var(--color-primary);
+}
+
+.home .competion-table .table th,
+.home .competion-table .table td {
+  text-transform: lowercase;
+}
+
+.home .competion-table .table th::first-letter,
+.home .competion-table .table td::first-letter {
   text-transform: capitalize;
+}
+
+.home .competion-table .table tr:last-of-type {
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.home .competion-table .table thead tr {
+  color: var(--color-white);
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 0;
+  background: var(--color-primary);
+}
+
+.home .competion-table .table thead tr th {
+  padding: 10px 10px;
+  text-align: left;
+}
+
+.home .competion-table .table tr {
+  text-align: left;
+}
+
+.home .competion-table .table tr td {
+  padding: 10px 10px;
+  color: #292929;
 }
 
 .home .competion-table .table tr:nth-of-type(even) {
   background: #bcbcbc;
 }
 
-.home .competion-table .table th {
-  color: var(--color-black);
-  font-weight: 600;
-  text-align: center;
-  padding: 10px 0;
-  background: var(--color-grey-v1);
+.home .competion-table .table tr.active td {
+  color: var(--color-primary);
 }
 
-.home .competion-table .table td {
-  padding: 10px 0;
+.match-results-container {
+  margin-top: 40px;
+}
+
+.match-results-container .title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: var(--color-primary);
+}
+
+.match-results-container .match-results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.match-results-container .match-results .match-result {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  background-color: #04040e;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-black-v1);
+}
+
+.match-results-container .match-results .match-result .match-result-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.match-results-container .match-results .match-result .name {
+  margin-bottom: 5px;
+  text-transform: lowercase;
   font-weight: 400;
-  text-align: center;
-  color: #000;
+  font-size: 14px;
 }
 
-@media (max-width: 500px) {
+.match-results-container .match-results .match-result .name::first-letter {
+  text-transform: capitalize;
+}
+
+.match-results-container .match-results .match-result .player {
+  width: 48%;
+  text-align: center;
+}
+
+.match-results-container .match-results .match-result .divider {
+  width: 60px;
+  height: 30px;
+  font-size: 14px;
+  color: var(--color-white);
+  background: var(--color-primary);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 20px;
+  margin: 0 5px;
+}
+
+.match-results-container .match-results .match-result .divider .score {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.match-results-container .match-results .match-result .divider .divider-middle {
+  color: var(--color-white);
+  font-weight: 500;
+  margin: 0 5px;
+}
+
+.match-results-container .match-results .match-result .match-result-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.match-results-container .match-results .match-result .match-result-footer h3 {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.match-results-container .match-results .match-result .match-result-footer.j-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.match-results-container .match-results .match-result .match-result-footer.j-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.match-results-container .match-results .match-result .match-result-footer .tools-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1rem;
+}
+
+.match-results-container .match-results .match-result .match-result-footer .tools-icons .tool-icon {
+  font-style: 16px;
+  color: var(--color-primary);
+}
+
+.match-results-container .match-results .match-result .match-result-footer .tools-icons .tool-icon:nth-child(2) {
+  color: #f11c15;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
   .container {
     width: 90%;
+  }
+  .container .competion-table {
+    width: 100%;
+  }
+  .container .competion-table .table {
+    width: 700px;
+  }
+  .container .match-results-container .match-results .match-result {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .match-results-container .match-results .match-result {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
 }
 /*# sourceMappingURL=style.css.map */

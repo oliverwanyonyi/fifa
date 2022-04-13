@@ -13,7 +13,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/register" || location.pathname === "/login") {
+    if (location.pathname === "/register" || location.pathname === "/login" || location.pathname === '/reset-password') {
       setShowNav(false);
     } else {
       setShowNav(true);

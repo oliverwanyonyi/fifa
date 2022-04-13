@@ -9,11 +9,22 @@ import {
   GET_USERS_REQUEST,
   GET_USERS_SUCCESS,
   GET_USERS_FAIL,
-  UPDATE_STATS_SUCCESS,
-  UPDATE_STATS_REQUEST,
-  UPDATE_STATS_FAIL,
 } from "../Constants/userConstants";
 import { api } from "../api/api";
+import {
+  GET_MATCHES_FAIL,
+  GET_MATCHES_REQUEST,
+  GET_MATCHES_SUCCESS,
+  CREATE_MATCH_SUCCESS,
+  CREATE_MATCH_FAIL,
+  UPDATE_MATCH_REQUEST,
+  UPDATE_MATCH_FAIL,
+  UPDATE_MATCH_SUCCESS,
+  CREATE_MATCH_REQUEST,
+  DELETE_MATCH_SUCCESS,
+  DELETE_MATCH_FAIL,
+  DELETE_MATCH_REQUEST,
+} from "../Constants/matchConstants";
 
 export const registerUser = async (dispatch, user, navigate) => {
   console.log(user);
@@ -88,21 +99,88 @@ export const getUsers = async (dispatch) => {
   }
 };
 
-export const updateStats = async (dispatch, contest, user) => {
+export const createMatch = async (dispatch, contest, user) => {
+  console.log(dispatch);
   try {
-    dispatch({ type: UPDATE_STATS_REQUEST });
+    dispatch({ type: CREATE_MATCH_REQUEST });
     const config = {
       headers: {
         "Content-type": "application/json",
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios.put(`${api}/users/`, contest, config);
-    dispatch({ type: UPDATE_STATS_SUCCESS, payload: true });
+    await axios.post(`${api}/users/`, contest, config);
+    dispatch({ type: CREATE_MATCH_SUCCESS, payload: true });
   } catch (error) {
     console.log(error);
     dispatch({
-      type: UPDATE_STATS_FAIL,
+      type: CREATE_MATCH_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : "No internet connection!",
+    });
+  }
+};
+
+export const updateMatch = async (dispatch, contest, user, matchId) => {
+  console.log(dispatch);
+  try {
+    dispatch({ type: UPDATE_MATCH_REQUEST });
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    };
+    await axios.put(`${api}/matches/${matchId}`, contest, config);
+    dispatch({ type: UPDATE_MATCH_SUCCESS, payload: true });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: UPDATE_MATCH_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : "No internet connection!",
+    });
+  }
+};
+
+export const deleteMatch = async (dispatch, matchId, contest, user) => {
+  console.log(contest);
+
+  try {
+    dispatch({ type: DELETE_MATCH_REQUEST });
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.token}`,
+      },
+    };
+    await axios.post(`${api}/matches/${matchId}`, contest, config);
+    dispatch({ type: DELETE_MATCH_SUCCESS, payload: true });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: DELETE_MATCH_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : "No internet connection!",
+    });
+  }
+};
+
+export const getMatches = async (dispatch) => {
+  try {
+    dispatch({ type: GET_MATCHES_REQUEST });
+
+    const { data } = await axios.get(`${api}/matches`);
+    dispatch({ type: GET_MATCHES_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_MATCHES_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

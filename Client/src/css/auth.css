@@ -1,6 +1,5 @@
 button {
   cursor: pointer;
-  text-transform: capitalize;
 }
 
 .auth {
@@ -100,9 +99,12 @@ button {
   -webkit-transition: 0.2s ease all;
 }
 
-.auth .container .auth-wrapper .auth-form .form-group .form-control,
 .auth .container .auth-wrapper .auth-form .form-group .form-select {
   text-transform: capitalize;
+}
+
+.auth .container .auth-wrapper .auth-form .form-group .form-control,
+.auth .container .auth-wrapper .auth-form .form-group .form-select {
   width: 100%;
   background: var(--color-grey);
   font-size: 14px;
@@ -165,7 +167,7 @@ button {
 
 .auth .container .auth-wrapper .auth-form .form-footer .form-submit:disabled {
   cursor: not-allowed;
-  background: #50f1f7;
+  opacity: 0.7;
 }
 
 .auth .container .auth-wrapper .auth-form .form-footer p {

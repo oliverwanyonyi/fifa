@@ -39,8 +39,7 @@
           .nav__drop {
             position: absolute;
             top: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 0;
             background: var(--color-grey);
             width: 200px;
             border-bottom: 2px solid var(--color-primary);
@@ -48,6 +47,8 @@
             visibility: hidden;
             z-index: 10;
             transition: 400ms ease-in;
+            border-radius: 5px;
+            overflow: hidden;
             &.drop-active {
               opacity: 1;
               visibility: visible;

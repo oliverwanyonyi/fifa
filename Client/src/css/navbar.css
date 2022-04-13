@@ -62,9 +62,7 @@
 .nav .nav__container .nav__links-container .nav__links .nav__item .nav__drop {
   position: absolute;
   top: 3rem;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  right: 0;
   background: var(--color-grey);
   width: 200px;
   border-bottom: 2px solid var(--color-primary);
@@ -73,6 +71,8 @@
   z-index: 10;
   -webkit-transition: 400ms ease-in;
   transition: 400ms ease-in;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .nav .nav__container .nav__links-container .nav__links .nav__item .nav__drop.drop-active {
